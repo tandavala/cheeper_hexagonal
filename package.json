@@ -4,19 +4,23 @@
    "description": "Awesome project developed with TypeORM.",
    "type": "commonjs",
    "devDependencies": {
-      "@types/node": "^16.11.10",
+      "@types/knex": "^0.16.1",
+      "@types/node": "^18.0.0",
       "@types/uuid": "^8.3.4",
       "ts-node": "10.7.0",
       "typescript": "4.5.2"
    },
    "dependencies": {
+      "dotenv": "^16.0.1",
+      "knex": "^2.1.0",
       "mysql": "^2.14.1",
       "reflect-metadata": "^0.1.13",
-      "typeorm": "0.3.6",
       "uuid": "^8.3.2"
    },
    "scripts": {
       "start": "ts-node src/index.ts",
+      "migration:make": "knex --knexfile ./src/Infrastructure/config/connection.ts migrate:make",
+      "migration:run": "knex --knexfile ./src/Infrastructure/config/connection.ts migrate:latest",
       "typeorm": "typeorm-ts-node-commonjs"
    }
 }
