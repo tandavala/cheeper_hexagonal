@@ -15,7 +15,7 @@ export class Author {
     this._username = username;
   }
 
-  public username(): string {
+  get username(): string {
     return this._username;
   }
   public setWebsite(website: string): void {
@@ -23,7 +23,7 @@ export class Author {
     this._website = website;
   }
 
-  public website(): string {
+  get website(): string {
     return this._website;
   }
 
@@ -32,7 +32,7 @@ export class Author {
     this._bio = bio;
   }
 
-  public bio(): string {
+  get bio(): string {
     return this._bio;
   }
 
@@ -40,7 +40,7 @@ export class Author {
     this._id = id;
   }
 
-  public id(): Number {
+  get id(): Number {
     return this._id;
   }
 
