@@ -19,6 +19,10 @@ export class UserName extends ValueObject {
   public equalsTo(usernName: UserName): boolean {
     return this._userName === usernName._userName;
   }
+
+  get name() {
+    return this._userName;
+  }
   private assertNotEmpty(str: string): void {
     if (empty(str))
       throw new InvalidArgumentException("User name cannot be empty");

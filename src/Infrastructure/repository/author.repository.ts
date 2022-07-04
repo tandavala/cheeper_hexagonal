@@ -10,8 +10,11 @@ export class AuthorRepository implements IAuthorRepository {
   }
 
   async ofUserName(userName: UserName): Promise<Author> {
-    const data = await Database("authors").where("username", userName).first();
+    const data = await Database("authors")
+      .where("username", userName.name)
+      .first();
     const author = new Author(data.username);
+    author.setId(data.id);
     author.setBio(data.bio);
     author.setWebsite(data.website);
     return author;
@@ -28,6 +31,7 @@ export class AuthorRepository implements IAuthorRepository {
   async update(id, website, bio) {
     const data = await this.ofId(id);
     const author = new Author(data.username);
+
     author.setBio(bio);
     author.setWebsite(website);
     await Database("authors").where("id", data.id).update({

@@ -16,7 +16,7 @@ export class Cheep {
   }
 
   private setMessage(message) {
-    if (empty) {
+    if (empty(message)) {
       throw new RuntimeException("Message cannot be empty");
     }
     this._message = message;
